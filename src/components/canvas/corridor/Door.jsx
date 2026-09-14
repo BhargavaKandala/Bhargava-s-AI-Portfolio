@@ -5,8 +5,8 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import { PositionalAudio } from '@react-three/drei';
 import '../shaders/RevealMaterial'; // Registers alpha-discard reveal shader
-import { useAudio } from '../../../../context/AudioManager';
-import { isTouchDevice } from '../../../../utils/deviceDetect';
+import { useAudio } from '../../../context/AudioManager';
+import { isTouchDevice } from '../../../utils/deviceDetect';
 
 // Global settings for entrance doors audio
 const ENTRANCE_DOOR_AUDIO_SETTINGS = {
@@ -205,12 +205,12 @@ const Door = ({
             </group>
 
             {/* Outline Glow (always visible but fades based on distance) */}
-            <mesh position={[0, -0.2, -0.05]} rotation={[0, Math.PI, 0]}>
+            <mesh ref={glowRef} position={[0, -0.2, -0.05]} rotation={[0, Math.PI, 0]}>
                 <planeGeometry args={[doorWidth + 0.3, doorHeight + 0.3]} />
                 <meshBasicMaterial
                     color="#fcf3c6"
                     transparent={true}
-                    opacity={glowIntensity} // Dynamic opacity based on proximity
+                    opacity={0.1}
                     depthWrite={false}
                 />
             </mesh>
