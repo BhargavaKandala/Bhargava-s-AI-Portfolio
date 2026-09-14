@@ -1,0 +1,6 @@
+# Ten plik służy tylko do wewnętrznych przekierowań ścieżek np:
+# /stara-strona /nowa-strona 301
+# Przekierowania z www na non-www ustawiamy bezpośrednio w zakładce "Rules -> Redirect Rules" w panelu głównym domeny w Cloudflare.
+
+# SPA Fallback is handled automatically by Cloudflare Pages / Wrangler single-page-application setting.
+
