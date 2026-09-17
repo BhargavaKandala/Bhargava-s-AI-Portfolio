@@ -94,8 +94,8 @@ export const CORRIDOR_TEXTURES = [
 
 // Standard HTML Image assets (preloaded via new Image() in App.jsx)
 export const IMAGE_ASSETS = [
-    '/images/avatar-thinking.webp',
-    '/images/avatar-hero.webp',
+    // avatar-thinking.webp / avatar-hero.webp were preloaded here but nothing
+    // renders them, so they only cost download time on the loader screen.
     '/images/ink-splash.webp',
     '/images/map.webp',
     '/images/map_about_painted.webp',
