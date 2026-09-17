@@ -625,11 +625,14 @@ const EntranceDoors = ({
             </mesh>
 
             {/* === CAPABILITY SIGN BANNERS ABOVE GATE === */}
+            {/* Only the x: 1.8 slot is actually readable: the PORTFOLIO sign
+                covers -0.6 and 0.6, and the tree covers -1.8. Until the row is
+                re-laid-out, the most important label goes in the visible slot. */}
             {[
                 { text: "Creative Dev", x: -1.8 },
-                { text: "Frontend Eng", x: -0.6 },
-                { text: "Full Stack", x: 0.6 },
-                { text: "3D & Motion", x: 1.8 }
+                { text: "Deep Learning", x: -0.6 },
+                { text: "Agentic AI", x: 0.6 },
+                { text: "AI Engineer", x: 1.8 }
             ].map((banner, index) => (
                 <group key={index} position={[banner.x, frameCenterY + 1.65, 0.2]}>
                     {/* Shadow / Border plane */}
@@ -671,7 +674,7 @@ const EntranceDoors = ({
             {/* LEFT DOOR */}
             <group ref={leftDoorRef} position={[-doorWidth, doorCenterY, 0]}>
                 {/* Custom Stickers to cover old tech stack stickers - LEFT DOOR */}
-                <group position={[doorWidth / 2, 0.45, 0.091]}>
+                <group position={[doorWidth / 2, 0.45, 0.099]}>
                     <mesh position={[0.01, -0.01, -0.002]}>
                         <planeGeometry args={[0.73, 0.38]} />
                         <meshBasicMaterial color="#311059" transparent opacity={0.7} />
@@ -688,11 +691,11 @@ const EntranceDoors = ({
                         anchorY="middle"
                         font="/fonts/CabinSketch-Bold.ttf"
                     >
-                        Full Stack 🚀
+                        Agentic AI 🚀
                     </Text>
                 </group>
 
-                <group position={[doorWidth / 2, -0.45, 0.091]}>
+                <group position={[doorWidth / 2, -0.45, 0.099]}>
                     <mesh position={[0.01, -0.01, -0.002]}>
                         <planeGeometry args={[0.73, 0.38]} />
                         <meshBasicMaterial color="#311059" transparent opacity={0.7} />
@@ -795,7 +798,7 @@ const EntranceDoors = ({
             {/* RIGHT DOOR */}
             <group ref={rightDoorRef} position={[doorWidth, doorCenterY, 0]}>
                 {/* Custom Stickers to cover old tech stack stickers - RIGHT DOOR */}
-                <group position={[-doorWidth / 2, 0.45, 0.091]}>
+                <group position={[-doorWidth / 2, 0.45, 0.099]}>
                     <mesh position={[0.01, -0.01, -0.002]}>
                         <planeGeometry args={[0.73, 0.38]} />
                         <meshBasicMaterial color="#311059" transparent opacity={0.7} />
@@ -812,11 +815,11 @@ const EntranceDoors = ({
                         anchorY="middle"
                         font="/fonts/CabinSketch-Bold.ttf"
                     >
-                        Blogging ✍️
+                        Case Studies ✍️
                     </Text>
                 </group>
 
-                <group position={[-doorWidth / 2, -0.45, 0.091]}>
+                <group position={[-doorWidth / 2, -0.45, 0.099]}>
                     <mesh position={[0.01, -0.01, -0.002]}>
                         <planeGeometry args={[0.73, 0.38]} />
                         <meshBasicMaterial color="#311059" transparent opacity={0.7} />
@@ -833,7 +836,7 @@ const EntranceDoors = ({
                         anchorY="middle"
                         font="/fonts/CabinSketch-Bold.ttf"
                     >
-                        Web Dev 💻
+                        Python 💻
                     </Text>
                 </group>
 
