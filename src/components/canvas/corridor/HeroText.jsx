@@ -71,10 +71,16 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
     const wordmarkHalfWidth = ([...WORDMARK].length - 1) * LETTER_SPACING / 2;
 
     // Tagline words for split effect
+    // The avatar stands dead centre and occludes whatever word sits at x = 0,
+    // so the middle slot is the connector rather than a load-bearing word:
+    // "AI Engineer  &  Creative Dev" still reads correctly with the "&" hidden.
+    // Positions are measured from CabinSketch advance widths at fontSize 0.13 /
+    // letterSpacing 0.04, with a 0.20 gap, so neither phrase reaches the
+    // occluded band around the avatar's head.
     const taglineWords = useMemo(() => [
-        { text: 'Creative', baseX: -1.3, splitDir: -1.8 },
-        { text: 'AI', baseX: 0, splitDir: 0 },
-        { text: 'Engineer', baseX: 1.3, splitDir: 1.8 },
+        { text: 'AI Engineer', baseX: -0.79, splitDir: -1.09 },
+        { text: '&', baseX: 0, splitDir: 0 },
+        { text: 'Creative Dev', baseX: 0.85, splitDir: 1.18 },
     ], []);
 
     // Animation loop
