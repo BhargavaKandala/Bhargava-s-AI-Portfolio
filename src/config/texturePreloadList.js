@@ -156,6 +156,7 @@ export const GALLERY_TEXTURES_VERSIONED = [
     'langchainlogo',
     'geminilogo',
     'opencvlogo',
+    'numpylogo',
 ];
 
 export const GALLERY_TEXTURES = [

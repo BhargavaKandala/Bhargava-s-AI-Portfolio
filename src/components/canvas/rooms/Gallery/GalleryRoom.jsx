@@ -204,7 +204,7 @@ const GalleryRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
             'tailwindlogo', 'wordpresslogo',
             // AI/ML stack used by the current projects
             'pythonlogo', 'pytorchlogo', 'ollamalogo', 'langchainlogo',
-            'geminilogo', 'opencvlogo'
+            'geminilogo', 'opencvlogo', 'numpylogo'
         ];
         return names.map(name => {
             if (!canHover) return `/textures/gallery/${name}.webp`;
@@ -1224,9 +1224,19 @@ const ProjectCard = memo(forwardRef(({ index, project, clothespinTexture, curren
                     {/* Kontener na loga układane poziomo */}
                     <group position={[0, -0.05, 0.01]}>
                         {project.techStack && project.techStack.map((logoPath, idx) => {
-                            // Rozstawienie kwadracików (4 sztuki wyśrodkowane)
+                            // The card back art has FOUR fixed boxes drawn on it,
+                            // and that row is not centred on the card: measured
+                            // against the render, its centre sits at x = +0.034
+                            // with 0.30 between boxes.
+                            //
+                            // Centring N logos (the previous behaviour) therefore
+                            // dropped every one of them onto a box border --- with
+                            // three logos each sat ~0.118 to the right of a box.
+                            // Snap to the boxes instead, so logo i lands in box i.
                             const spacing = 0.30;
-                            const startX = -((project.techStack.length - 1) * spacing) / 2;
+                            const BOX_COUNT = 4;
+                            const ROW_CENTER_X = 0.034;
+                            const startX = ROW_CENTER_X - ((BOX_COUNT - 1) * spacing) / 2;
                             const xPos = startX + (idx * spacing);
 
                             return (
