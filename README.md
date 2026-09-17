@@ -51,8 +51,8 @@ Ensure you have **Node.js 18+** and **npm** installed on your system.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/shajith23/sketch-portfolio.git
-cd sketch-portfolio
+git clone https://github.com/BhargavaKandala/Bhargava-s-AI-Portfolio.git
+cd Bhargava-s-AI-Portfolio
 ```
 
 ### 2. Install Dependencies
@@ -112,6 +112,12 @@ Follow these step-by-step instructions to deploy the application on **Cloudflare
 4. **Set Environment Variables**:
    - Under **Environment variables (advanced)**, add:
      - `NODE_VERSION` = `20`
+     - `VITE_WEB3FORMS_KEY` = your [Web3Forms](https://web3forms.com) access key.
+       Without it the contact form cannot send anything.
+     - `VITE_ALLOWED_ORIGINS` = comma-separated hosts allowed to submit the
+       contact form, e.g. `your-domain.com,your-project.pages.dev`. Submissions
+       from hosts not listed here are silently discarded.
+   - See `.env.example` for the same variables in local development.
 
 5. **Save & Deploy**:
    - Click **Save and Deploy**. Cloudflare will run the build process and deploy your site.
