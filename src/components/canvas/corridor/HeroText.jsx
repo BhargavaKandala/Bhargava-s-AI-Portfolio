@@ -11,12 +11,15 @@ const CABIN_SKETCH_URL = '/fonts/CabinSketch-Regular.ttf';
 // this string, so changing the name re-flows the split animation automatically.
 const WORDMARK = 'BHARGAVA';
 
-// Tuned against the original 6-letter layout (spacing 0.36 @ fontSize 0.85):
-// spacing/fontSize is held at ~0.42 so letter density stays identical, and
-// SPLIT_RATIO is set so the outermost letter travels about as far as it used to.
-const LETTER_SPACING = 0.32;
-const LETTER_FONT_SIZE = 0.75;
-const SPLIT_RATIO = 1.4;
+// RubikScribble glyphs average 0.748em wide, so the original 6-letter layout
+// (spacing 0.36 @ fontSize 0.85) overlapped neighbours by 1.73x — a deliberately
+// bunched wordmark. Copying that ratio to 8 letters made it an illegible blob:
+// the overlap compounds across two extra glyphs. Spacing is now ~1.04x glyph
+// width, so letters just touch, and SPLIT_RATIO is re-derived to keep the
+// outermost letter's travel at the original ~2.52 despite the wider rest span.
+const LETTER_SPACING = 0.43;
+const LETTER_FONT_SIZE = 0.60;
+const SPLIT_RATIO = 0.75;
 
 /**
  * HeroText Component - Custom styled for Sree Bhargava

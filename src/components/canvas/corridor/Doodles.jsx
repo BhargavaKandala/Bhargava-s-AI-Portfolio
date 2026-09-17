@@ -101,8 +101,13 @@ const Doodles = () => {
                     <Squiggle position={[-1.6, 0.5, -0.3]} rotation={0.2} />
                     <Squiggle position={[1.4, 0.3, 0.2]} rotation={-0.3} />
 
-                    {/* Thought bubble near avatar */}
-                    <ThoughtBubble position={[0.9, 0.7, 0.5]} />
+                    {/* Thought bubble beside the avatar. It renders in front of
+                        the hero text, and the 8-letter wordmark is wide enough
+                        that the original spot (0.9, 0.7) put it on the last
+                        letter; dropping it straight down only moved the clash
+                        onto the tagline. Moved out to the right instead, clear
+                        of both the wordmark and the tagline row. */}
+                    <ThoughtBubble position={[1.5, -0.35, 0.5]} />
                 </>
             )}
         </group>
