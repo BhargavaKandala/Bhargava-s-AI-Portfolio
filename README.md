@@ -2,8 +2,6 @@
 
 > **An immersive, hand-drawn 3D interactive portfolio experience built with React 19, Three.js, React Three Fiber, and GSAP.**
 
-🌐 **Live Demo:** [(https://sketch-portfolio-livid.vercel.app/))
-
 ---
 
 [![React 19](https://img.shields.io/badge/React-19.2.7-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
