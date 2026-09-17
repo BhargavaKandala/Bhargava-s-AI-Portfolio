@@ -24,3 +24,8 @@ dist-ssr
 *.bak
 dist
 
+# Local secrets (Web3Forms access key, allowed origins)
+.env
+.env.*
+!.env.example
+

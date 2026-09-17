@@ -5,31 +5,35 @@ import { useScene } from '../context/SceneContext';
  * useDocumentMeta — Dynamic Meta Tags & Virtual Routing (History API)
  */
 
+// TODO: replace with the real deployed origin (also update index.html JSON-LD
+// and public/sitemap.xml, which hard-code the same origin).
+const SITE_ORIGIN = 'https://YOUR-DOMAIN.com';
+
 const ROOM_META = {
     null: {
         path: '/',
-        title: 'Younus — Creative Web Developer & Interactive Web Engineer',
-        description: 'Portfolio of Younus, Creative Web Developer specializing in immersive digital experiences, scrollytelling, 3D web experiences, motion design, and scalable full stack architecture.',
+        title: 'Sree Bhargava — AI Engineer & Creative Developer',
+        description: 'Portfolio of Sree Bhargava — AI Engineer building agentic systems, local LLM pipelines and deep learning models, and a creative developer building immersive 3D web experiences.',
     },
     about: {
         path: '/about',
-        title: 'About — Younus Portfolio',
-        description: 'Learn about Younus — a Creative Web Developer bridging design and development to build immersive digital experiences inspired by Apple, Stripe, and Linear.',
+        title: 'About — Sree Bhargava Portfolio',
+        description: 'Learn about Sree Bhargava — an AI Engineer working on agentic systems, local language models and deep learning, who builds the interfaces around them too.',
     },
     gallery: {
         path: '/gallery',
-        title: 'Gallery & Featured Work — Younus Portfolio',
-        description: 'Explore projects built by Younus, including vegMart (a quick-commerce vegetable delivery app), Shawarma Delights (a restaurant website), and a fashion store e-commerce demo.',
+        title: 'Gallery & Featured Work — Sree Bhargava Portfolio',
+        description: 'Selected projects by Sree Bhargava — satellite image super-resolution, a self-correcting code agent, and a fully local voice-driven AI command centre.',
     },
     studio: {
         path: '/studio',
-        title: 'The Studio — Younus Portfolio',
-        description: 'Explore Younus\'s interactive 3D studio showcasing full stack engineering architecture, 3D web experiments, and high-performance UI systems.',
+        title: 'The Studio — Sree Bhargava Portfolio',
+        description: 'Sree Bhargava\'s interactive 3D studio — write-ups on agentic AI pipelines, local LLM tooling, and deep learning for remote sensing.',
     },
     contact: {
         path: '/contact',
-        title: 'Contact — Younus Portfolio',
-        description: 'Let\'s build something people remember. Get in touch with Younus for immersive web experiences and scalable full stack applications.',
+        title: 'Contact — Sree Bhargava Portfolio',
+        description: 'Let\'s build something people remember. Get in touch with Sree Bhargava about AI engineering, agentic systems, or creative web work.',
     },
 };
 
@@ -74,12 +78,12 @@ export function useDocumentMeta() {
         if (ogDesc) ogDesc.setAttribute('content', meta.description);
 
         const ogUrl = document.querySelector('meta[property="og:url"]');
-        if (ogUrl) ogUrl.setAttribute('content', `https://developer.younus${meta.path}`);
+        if (ogUrl) ogUrl.setAttribute('content', `${SITE_ORIGIN}${meta.path}`);
 
         // Update canonical link
         const canonicalTag = document.querySelector('link[rel="canonical"]');
         if (canonicalTag) {
-            canonicalTag.setAttribute('href', `https://developer.younus${meta.path}`);
+            canonicalTag.setAttribute('href', `${SITE_ORIGIN}${meta.path}`);
         }
 
         // Push to browser history

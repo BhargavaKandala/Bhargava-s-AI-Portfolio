@@ -78,7 +78,7 @@ export default function ContactForm() {
         width: '100%',
         position: 'relative'
       }}
-      aria-label="Send a message to Younus"
+      aria-label="Send a message to Sree Bhargava"
     >
       <div style={{ textAlign: 'left', borderBottom: '1px solid var(--border-primary)', paddingBottom: '16px' }}>
         <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)', margin: '0 0 4px', color: 'var(--text-primary)' }}>
@@ -104,7 +104,7 @@ export default function ContactForm() {
             fontWeight: 500
           }}
         >
-          Thank you! Your message was transmitted successfully. Younus will respond within 24 hours.
+          Thank you! Your message was transmitted successfully. Sree Bhargava will respond within 24 hours.
         </div>
       )}
 
@@ -123,7 +123,7 @@ export default function ContactForm() {
             fontWeight: 500
           }}
         >
-          Something went wrong. Please try again or email directly at mohammedyounus15contact@gmail.com
+          Something went wrong. Please try again or email directly at sreebhargava.kandala@gmail.com
         </div>
       )}
 

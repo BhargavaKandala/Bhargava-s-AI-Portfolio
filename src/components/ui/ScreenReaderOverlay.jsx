@@ -1,5 +1,7 @@
 import { useScene } from '../../context/SceneContext';
 import { useGalleryProjects, useStudioContent, useAwards } from '../../hooks/useSanityData';
+import { GALLERY_PROJECTS } from '../../data/galleryProjects';
+import { CONTENT_DATA } from '../canvas/rooms/Studio/contentData';
 import '../../styles/ScreenReaderOverlay.scss';
 
 /**
@@ -13,8 +15,11 @@ const ScreenReaderOverlay = () => {
     const { hasEntered, isInRoom, currentRoom, teleportTo, requestExit } = useScene();
     
     // Pobieranie danych do wygenerowania niewidocznego HTML-a dla SEO / robotów
-    const projects = useGalleryProjects();
-    const studio = useStudioContent();
+    // Sanity is disabled, so these hooks return null — fall back to the same
+    // local data the 3D rooms render, otherwise this layer emits nothing and
+    // the projects stay invisible to screen readers and crawlers.
+    const projects = useGalleryProjects() || GALLERY_PROJECTS;
+    const studio = useStudioContent() || CONTENT_DATA;
     const awards = useAwards();
 
     return (
@@ -26,11 +31,11 @@ const ScreenReaderOverlay = () => {
 
             {/* Main accessible navigation */}
             <nav id="sr-main-nav" className="sr-only" aria-label="Portfolio rooms">
-                <h1>Younus — Creative Web Developer</h1>
+                <h1>Sree Bhargava — Creative Web Developer</h1>
                 <h2>Portfolio Navigation</h2>
 
                 {!hasEntered && (
-                    <p>Welcome to Younus's interactive 3D portfolio. Click or press Enter on the doors to enter.</p>
+                    <p>Welcome to Sree Bhargava's interactive 3D portfolio. Click or press Enter on the doors to enter.</p>
                 )}
 
                 {hasEntered && !isInRoom && (
@@ -118,7 +123,13 @@ const ScreenReaderOverlay = () => {
                         {currentRoom === 'contact' && (
                             <div aria-label="Contact room content">
                                 <h3>Contact Me</h3>
-                                <p>Find my social media links displayed as floating barrels. Click to visit my profiles on LinkedIn, GitHub, and other platforms.</p>
+                                <p>Find my social media links displayed as floating barrels. Click to visit my profiles on GitHub, LinkedIn, and Instagram, or email me directly.</p>
+                                <ul>
+                                    <li><a href="https://github.com/BhargavaKandala">GitHub</a></li>
+                                    <li><a href="https://www.linkedin.com/in/bhargava-sharma-kandala/">LinkedIn</a></li>
+                                    <li><a href="https://www.instagram.com/bhargava_kandala/">Instagram</a></li>
+                                    <li><a href="mailto:sreebhargava.kandala@gmail.com">sreebhargava.kandala@gmail.com</a></li>
+                                </ul>
                             </div>
                         )}
                         {currentRoom === 'studio' && (

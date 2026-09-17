@@ -346,26 +346,28 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
             <Text
                 ref={titleRef}
                 position={[0, 5, 0.1]}
-                fontSize={0.95}
+                /* 0.72 keeps the 8-char name the same rendered width the 6-char one had */
+                fontSize={0.72}
                 color="#1a1a1a"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/RubikScribble-Regular.ttf"
             >
-                YOUNUS
+                BHARGAVA
             </Text>
 
             {/* Subtitle - Brand (spreads right) */}
             <Text
                 ref={brandRef}
                 position={[0, 4.2, 0.1]}
-                fontSize={0.35}
+                /* 0.32 holds the wider 32-char subtitle to the previous width */
+                fontSize={0.32}
                 color="#4a4a4a"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/CabinSketch-Bold.ttf"
             >
-                CREATIVE FULL STACK DEVELOPER
+                AI ENGINEER & CREATIVE DEVELOPER
             </Text>
 
             {/* Avatar on cloud - floating + spreads up-left */}
@@ -465,16 +467,17 @@ const AWARDS_DATA = {
     other: {
         id: 'award-other',
         layout: 'certificate_grid',
-        title: 'Creative Engineering & UI Design',
+        title: 'Agentic AI & Local Language Models',
         items: [
-            { label: 'Interactive Storytelling & Physics', date: '2026', image: '/textures/about/button.webp', url: '#' },
-            { label: 'Awwwards-Level Design Systems', date: '2025', image: '/textures/about/button.webp', url: '#' },
-            { label: 'Fluid Motion & Tactile Interactions', date: '2026', image: '/textures/about/button.webp', url: '#' }
+            { label: 'Multi-Agent Pipelines (Planner / Developer / Tester / Reviewer)', date: '2026', image: '/textures/about/button.webp', url: '#' },
+            { label: 'Self-Verifying Agents with Execution Feedback Loops', date: '2026', image: '/textures/about/button.webp', url: '#' },
+            { label: 'Hand-Written ReAct Loops & Tool Calling', date: '2026', image: '/textures/about/button.webp', url: '#' },
+            { label: 'Fully Local Inference with Ollama — No Cloud APIs', date: 'Active', image: '/textures/about/button.webp', url: '#' }
         ],
         platformConfig: {
-            label: 'CREATIVE',
+            label: 'AGENTIC AI',
             color: '#00D9FF',
-            icon: '🎨'
+            icon: '🤖'
         }
     }
 };
@@ -803,7 +806,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
                 >
-                    CREATIVE
+                    AGENTIC AI
                 </Text>
                 {/* CAPACITY SUBTITLE */}
                 <Text
@@ -814,7 +817,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                     anchorY="middle"
                     font="/fonts/CabinSketch-Regular.ttf"
                 >
-                    3D & Motion Physics
+                    Agents & Local LLMs
                 </Text>
             </group>
         </group>
@@ -985,20 +988,20 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
 // === EDYTUJ WYSOKOŚĆ TUTAJ (zmień wartość 'y' dla każdego balona) ===
 const BALLOON_CONFIG = [
     // Large balloons (main skills) - front and center
-    { texture: '/textures/about/reactduzybalon.webp', paintedTexture: '/textures/about/reactduzybalon_painted.webp', label: 'React', size: 'large', x: -2.5, y: 2, z: 0.3, phase: 0 },
-    { texture: '/textures/about/threejsduzybalon.webp', paintedTexture: '/textures/about/threejsduzybalon_painted.webp', label: 'Three.js', size: 'large', x: 2.5, y: 2.5, z: 0.2, phase: 1.5 },
-    { texture: '/textures/about/GSAPduzybalon.webp', paintedTexture: '/textures/about/GSAPduzybalon_painted.webp', label: 'GSAP', size: 'large', x: 0, y: 3, z: 0.5, phase: 3 },
+    { texture: '/textures/about/pythonbalon.webp', paintedTexture: '/textures/about/pythonbalon_painted.webp', label: 'Python', size: 'large', x: -2.5, y: 2, z: 0.3, phase: 0 },
+    { texture: '/textures/about/pytorchbalon.webp', paintedTexture: '/textures/about/pytorchbalon_painted.webp', label: 'PyTorch', size: 'large', x: 2.5, y: 2.5, z: 0.2, phase: 1.5 },
+    { texture: '/textures/about/langchainbalon.webp', paintedTexture: '/textures/about/langchainbalon_painted.webp', label: 'LangChain', size: 'large', x: 0, y: 3, z: 0.5, phase: 3 },
 
     // Medium balloons - scattered around
-    { texture: '/textures/about/JSSREDNIBALON.webp', paintedTexture: '/textures/about/JSSREDNIBALON_painted.webp', label: 'JavaScript', size: 'medium', x: -4, y: 1, z: -0.3, phase: 0.8 },
-    { texture: '/textures/about/csssrednibalon.webp', paintedTexture: '/textures/about/csssrednibalon_painted.webp', label: 'CSS', size: 'medium', x: 4, y: 1.5, z: -0.2, phase: 2.2 },
-    { texture: '/textures/about/nextjssrednibalon.webp', paintedTexture: '/textures/about/nextjssrednibalon_painted.webp', label: 'Next.js', size: 'medium', x: 0, y: 0.5, z: -0.4, phase: 4 },
+    { texture: '/textures/about/tensorflowbalon.webp', paintedTexture: '/textures/about/tensorflowbalon_painted.webp', label: 'TensorFlow', size: 'medium', x: -4, y: 1, z: -0.3, phase: 0.8 },
+    { texture: '/textures/about/ollamabalon.webp', paintedTexture: '/textures/about/ollamabalon_painted.webp', label: 'Ollama', size: 'medium', x: 4, y: 1.5, z: -0.2, phase: 2.2 },
+    { texture: '/textures/about/opencvbalon.webp', paintedTexture: '/textures/about/opencvbalon_painted.webp', label: 'OpenCV', size: 'medium', x: 0, y: 0.5, z: -0.4, phase: 4 },
 
     // Small balloons - background accents
-    { texture: '/textures/about/htmlmalybalon.webp', paintedTexture: '/textures/about/htmlmalybalon_painted.webp', label: 'HTML', size: 'small', x: -5.5, y: 2.5, z: -0.8, phase: 1.2 },
+    { texture: '/textures/about/cppbalon.webp', paintedTexture: '/textures/about/cppbalon_painted.webp', label: 'C++', size: 'small', x: -5.5, y: 2.5, z: -0.8, phase: 1.2 },
     { texture: '/textures/about/gitmalybalon.webp', paintedTexture: '/textures/about/gitmalybalon_painted.webp', label: 'Git', size: 'small', x: 5.5, y: 3, z: -0.7, phase: 2.8 },
-    { texture: '/textures/about/figmamalybalon.webp', paintedTexture: '/textures/about/figmamalybalon_painted.webp', label: 'Figma', size: 'small', x: -3, y: 4.5, z: -0.5, phase: 3.5 },
-    { texture: '/textures/about/firebasemalybalon.webp', paintedTexture: '/textures/about/firebasemalybalon_painted.webp', label: 'Firebase', size: 'small', x: 3.5, y: 4, z: -0.6, phase: 4.5 },
+    { texture: '/textures/about/reactduzybalon.webp', paintedTexture: '/textures/about/reactduzybalon_painted.webp', label: 'React', size: 'small', x: -3, y: 4.5, z: -0.5, phase: 3.5 },
+    { texture: '/textures/about/threejsduzybalon.webp', paintedTexture: '/textures/about/threejsduzybalon_painted.webp', label: 'Three.js', size: 'small', x: 3.5, y: 4, z: -0.6, phase: 4.5 },
 ];
 
 // Size multipliers for balloon categories
@@ -1049,6 +1052,15 @@ const SkillBalloon = ({ config, revealFactorRef, spreadFactorRef, timeRef }) => 
         'reactduzybalon.webp': 736 / 1447,
         'threejsduzybalon.webp': 1141 / 1964,
         'GSAPduzybalon.webp': 1.0, // GSAP balloon is square
+        // The AI/ML balloons are cut from the react balloon body, so they
+        // share its ratio — without this they'd be squeezed by ~15%.
+        'pythonbalon.webp': 736 / 1447,
+        'pytorchbalon.webp': 736 / 1447,
+        'langchainbalon.webp': 736 / 1447,
+        'tensorflowbalon.webp': 736 / 1447,
+        'ollamabalon.webp': 736 / 1447,
+        'opencvbalon.webp': 736 / 1447,
+        'cppbalon.webp': 736 / 1447,
         'default_small_medium': 631 / 1482 // Common ratio for others
     };
     
@@ -1420,7 +1432,7 @@ const SkillsMilestone = ({ z, scrollProgressRef }) => {
                 anchorY="middle"
                 font="/fonts/CabinSketch-Regular.ttf"
             >
-                Technologies I love working with
+                ML, deep learning & agentic AI
             </Text>
 
             {/* === FLOATING BALLOONS === */}

@@ -1,7 +1,7 @@
 /**
  * Studio Content Data
  * 
- * Custom content for Younus's interactive monitor towers.
+ * Custom content for Sree Bhargava's interactive monitor towers.
  */
 
 export const PLATFORM_CONFIG = {
@@ -23,7 +23,7 @@ export const PLATFORM_CONFIG = {
         color: '#00D9FF',
         accentColor: '#5BE7FF',
         icon: '📱',
-        label: 'Micro Motion',
+        label: 'Agent Demo',
         shape: 'phone', // Vertical phone
     },
     linkedin: {
@@ -45,63 +45,62 @@ export const PLATFORM_CONFIG = {
 const RAW_CONTENT_DATA = [
     // ============ Case Studies / Projects ============
     {
-        id: 'studio-vegmart',
+        id: 'studio-satellite-sr',
         platform: 'blog',
-        title: 'vegMart: Full Stack Quick-Commerce Build',
-        description: 'Building a local vegetable ordering & delivery app with a customer storefront, an owner dashboard, and Supabase-backed inventory and order management.',
+        title: 'Satellite Super-Resolution: 10 m to 2.5 m, Measured',
+        description: 'Deep-learning super-resolution for Sentinel-2 imagery, validated against a bicubic control on PSNR, SSIM, SAM and ERGAS — plus a downstream land-cover test that checks the detail is actually useful, not just sharp.',
         frontTexture: '/textures/studio/monitorfront_postnafbdoublewinner.webp',
         paintedFrontTexture: '/textures/studio/monitorfront_postnafbdoublewinner_painted.webp',
         thumbnail: null,
-        url: '#project/vegmart',
-        date: '2026-03-24',
-        readTime: '8 min',
+        url: 'https://github.com/BhargavaKandala/Satellite-Super-Resolution-using-DL',
+        date: '2026-09-01',
+        readTime: '12 min',
     },
     {
-        id: 'studio-shawarma-delights',
+        id: 'studio-self-correcting',
         platform: 'blog',
-        title: 'Shawarma Delights: Cinematic Restaurant Landing Page',
-        description: 'Designing a dark, cinematic website for a local Hyderabad fast food restaurant, built to give a small business a polished online presence.',
+        title: 'Why Exit Code 0 Is a Terrible Success Signal',
+        description: 'A coding agent that reads its own tracebacks and retries. The interesting part was the failure: given a weak success check, the model "fixed" a broken program by reducing it to a single import that exits cleanly and computes nothing.',
         frontTexture: '/textures/studio/tvfront_filmikprojektdlamultiego.webp',
         paintedFrontTexture: '/textures/studio/tvfront_filmikprojektdlamultiego_painted.webp',
         thumbnail: null,
-        url: '#project/shawarma-delights',
-        date: '2026-02-15',
-        readTime: '6 min',
+        url: 'https://github.com/BhargavaKandala/Self-correcting-Code-Assistant',
+        date: '2026-09-04',
+        readTime: '10 min',
     },
     {
-        id: 'studio-fashionstoreapp',
+        id: 'studio-jarvis',
         platform: 'blog',
-        title: 'Fashion Store App: E-Commerce UI Patterns',
-        description: 'Exploring core e-commerce UI patterns — product listings, product detail views, and a cart-style shopping flow.',
+        title: 'JARVIS-OS: A Voice Assistant That Never Leaves the Machine',
+        description: 'Local speech in and out — faster-whisper for listening, Kokoro via ONNX for speaking — with skills mapped into the model at runtime and long-term memory kept as a Markdown graph rather than a database.',
         frontTexture: '/textures/studio/tvfront_filmikedytowaniezdjec.webp',
         paintedFrontTexture: '/textures/studio/tvfront_filmikedytowaniezdjec_painted.webp',
         thumbnail: null,
-        url: '#project/fashionstoreapp',
-        date: '2026-01-10',
-        readTime: '5 min',
+        url: 'https://github.com/BhargavaKandala/JARVIS-V0.1',
+        date: '2026-08-21',
+        readTime: '9 min',
     },
     {
-        id: 'studio-micro-interaction',
+        id: 'studio-multi-agent-builder',
         platform: 'tiktok',
-        title: 'Breaking Down English Grammar in 60 Seconds',
-        description: 'Behind the scenes of making short, educational English-learning Reels — scripting a hook, keeping it snappy, and making grammar stick.',
+        title: 'One Idea In, A Working App Out',
+        description: 'Four local agents — planner, developer, tester, reviewer — split the job the way a real team would. The reviewer gets the code *and* the tester\'s criticism of it, which is what turns the review into an actual fix.',
         frontTexture: '/textures/studio/phonefront_followmeontiktok.webp',
         paintedFrontTexture: '/textures/studio/phonefront_followmeontiktok_painted.webp',
         thumbnail: null,
-        url: '#',
-        date: '2026-03-01',
-        views: '5.2K',
-        likes: '840',
+        url: 'https://github.com/BhargavaKandala/multi-agent-app-builder',
+        date: '2026-09-06',
+        readTime: '7 min',
     },
     {
-        id: 'studio-perf',
+        id: 'studio-offline-agent',
         platform: 'blog',
-        title: 'Notes on Building Fast, Interactive Web UIs',
-        description: 'A few practical habits for keeping interactive sites smooth and responsive without over-engineering the stack.',
+        title: 'A ReAct Agent With No Framework Underneath',
+        description: 'Tool calling against a 4B local model, with the reason-act-observe loop written out in plain Python instead of hidden behind a library. Turn on airplane mode mid-session and it keeps going.',
         thumbnail: null,
-        url: '#',
-        date: '2025-10-15',
-        readTime: '10 min',
+        url: 'https://github.com/BhargavaKandala/Fully-Offline-AI-agent-using-SLM',
+        date: '2026-07-26',
+        readTime: '8 min',
     },
 ];
 

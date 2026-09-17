@@ -144,7 +144,7 @@ export default function About() {
                 marginBottom: '16px'
               }}
             >
-              ABOUT YOUNUS // CREATIVE WEB DEVELOPER
+              ABOUT SREE BHARGAVA // CREATIVE WEB DEVELOPER
             </p>
 
             {/* 2. Large heading */}
@@ -170,7 +170,7 @@ export default function About() {
                 fontWeight: 300
               }}
             >
-              I am Younus, a Creative Web Developer based in Hyderabad, India. I specialize in building immersive digital experiences rather than ordinary websites—combining visual storytelling, 3D WebGL viewports, and resilient backend architecture into unified web applications.
+              I am Sree Bhargava, a Creative Web Developer. I specialize in building immersive digital experiences rather than ordinary websites—combining visual storytelling, 3D WebGL viewports, and resilient backend architecture into unified web applications.
             </p>
             <p
               style={{

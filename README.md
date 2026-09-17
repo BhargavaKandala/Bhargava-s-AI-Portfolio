@@ -179,5 +179,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ---
 
 <p align="center">
-  Crafted by younusss and ☕ using React 19 & Three.js
+  Crafted by Sree Bhargava and ☕ using React 19 & Three.js
 </p>

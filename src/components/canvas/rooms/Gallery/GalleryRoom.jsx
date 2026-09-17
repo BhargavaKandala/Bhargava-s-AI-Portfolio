@@ -13,6 +13,7 @@ import GalleryClouds from './GalleryClouds';
 import { useAudio } from '../../../../context/AudioManager';
 import { usePaintMaterial } from './usePaintMaterial';
 import { useGalleryProjects } from '../../../../hooks/useSanityData';
+import { GALLERY_PROJECTS } from '../../../../data/galleryProjects';
 
 // Reusable Vector3 to avoid allocations in useFrame
 const _tempScale = new THREE.Vector3();
@@ -34,35 +35,7 @@ export const GALLERY_INTERACTION_AUDIO_SETTINGS = {
 };
 
 // Define the unique projects and their textures
-const FALLBACK_PROJECTS = [
-    {
-        id: 'vegmart',
-        title: 'VEGMART',
-        front: '/textures/gallery/timberkittyprzod.webp',
-        painted: '/textures/gallery/timberkittyprzod_painted.webp',
-        url: '#project/vegmart',
-        description: 'A local vegetable ordering & delivery app with a customer storefront, an owner dashboard, and Supabase-backed inventory and order management.',
-        techStack: ['/textures/gallery/reactlogo.webp', '/textures/gallery/jslogo.webp', '/textures/gallery/csslogo.webp']
-    },
-    {
-        id: 'shawarma-delights',
-        title: 'SHAWARMA DELIGHTS',
-        front: '/textures/gallery/bioprzod.webp',
-        painted: '/textures/gallery/bioprzod_painted.webp',
-        url: '#project/shawarma-delights',
-        description: 'A cinematic, dark-themed website for a local Hyderabad fast food restaurant, built to give a small business a polished online presence.',
-        techStack: ['/textures/gallery/htmllogo.webp', '/textures/gallery/csslogo.webp', '/textures/gallery/jslogo.webp']
-    },
-    {
-        id: 'fashionstoreapp',
-        title: 'FASHION STORE APP',
-        front: '/textures/gallery/youngmultiprzod.webp',
-        painted: '/textures/gallery/youngmultiprzod_painted.webp',
-        url: '#project/fashionstoreapp',
-        description: 'A fashion store demo application exploring an e-commerce shopping experience — product browsing, detail views, and a cart-style flow.',
-        techStack: ['/textures/gallery/jslogo.webp', '/textures/gallery/htmllogo.webp', '/textures/gallery/csslogo.webp']
-    }
-];
+const FALLBACK_PROJECTS = GALLERY_PROJECTS;
 
 const PROJECT_COUNT = 3; // 3 real projects in sequence
 const GAP = 2.5;
@@ -228,7 +201,10 @@ const GalleryRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
         const names = [
             'csslogo', 'elementorlogo', 'firebaselogo', 'htmllogo',
             'jslogo', 'netlifylogo', 'phplogo', 'reactlogo',
-            'tailwindlogo', 'wordpresslogo'
+            'tailwindlogo', 'wordpresslogo',
+            // AI/ML stack used by the current projects
+            'pythonlogo', 'pytorchlogo', 'ollamalogo', 'langchainlogo',
+            'geminilogo', 'opencvlogo'
         ];
         return names.map(name => {
             if (!canHover) return `/textures/gallery/${name}.webp`;

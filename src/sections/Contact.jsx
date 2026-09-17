@@ -45,7 +45,7 @@ export default function Contact() {
   }, []);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('mohammedyounus15contact@gmail.com');
+    navigator.clipboard.writeText('sreebhargava.kandala@gmail.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -153,7 +153,7 @@ export default function Contact() {
               </span>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
                 <a
-                  href="mailto:mohammedyounus15contact@gmail.com"
+                  href="mailto:sreebhargava.kandala@gmail.com"
                   style={{
                     fontSize: 'clamp(1.1rem, 2vw, 1.35rem)',
                     color: 'var(--text-primary)',
@@ -163,7 +163,7 @@ export default function Contact() {
                   }}
                   className="contact-email-link"
                 >
-                  mohammedyounus15contact@gmail.com
+                  sreebhargava.kandala@gmail.com
                 </a>
                 <button
                   onClick={handleCopyEmail}
@@ -202,7 +202,7 @@ export default function Contact() {
                 </span>
                 <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
                   <a
-                    href="https://github.com/Mohammedyounus15"
+                    href="https://github.com/BhargavaKandala"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ fontSize: '0.95rem', color: 'var(--text-secondary)' }}
@@ -212,7 +212,7 @@ export default function Contact() {
                     GitHub
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/mohammed-younus-329795288"
+                    href="https://www.linkedin.com/in/bhargava-sharma-kandala/"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ fontSize: '0.95rem', color: 'var(--text-secondary)' }}
@@ -222,7 +222,7 @@ export default function Contact() {
                     LinkedIn
                   </a>
                   <a
-                    href="https://instagram.com/developer.younus"
+                    href="https://www.instagram.com/bhargava_kandala/"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ fontSize: '0.95rem', color: 'var(--text-secondary)' }}

@@ -116,22 +116,23 @@ const CorridorSegment = ({
                 zClip={zClip}
             />
 
-            {/* === YOUNUS.DEV BRAND SIGN ON SIDE WALL === */}
+            {/* === BHARGAVA.DEV BRAND SIGN ON SIDE WALL === */}
             <Text
                 position={[-3.46, 0.4, zOffset - 8]}
                 rotation={[0, Math.PI / 2, 0]}
-                fontSize={0.32}
+                /* 0.27 keeps the 12-char wordmark within the same wall span the 10-char one used */
+                fontSize={0.27}
                 color="#1a1a1a"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/CabinSketch-Bold.ttf"
             >
-                YOUNUS.DEV
+                BHARGAVA.DEV
             </Text>
 
             {/* === WELCOME AREA (Start of segment) - MOVED CLOSER === */}
             <group position={[0, 0, zOffset - 2]}>
-                {/* YOUNUS 3D Header - Floating above avatar */}
+                {/* BHARGAVA 3D Header - Floating above avatar */}
                 <HeroText position={[0, 0.85, -0.5]} />
 
                 {/* Avatar - center */}

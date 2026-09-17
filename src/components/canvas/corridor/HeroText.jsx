@@ -7,8 +7,19 @@ import * as THREE from 'three';
 const RUBIK_SCRIBBLE_URL = '/fonts/RubikScribble-Regular.ttf';
 const CABIN_SKETCH_URL = '/fonts/CabinSketch-Regular.ttf';
 
+// Wordmark rendered as individual 3D letters. Spacing/positions are derived from
+// this string, so changing the name re-flows the split animation automatically.
+const WORDMARK = 'BHARGAVA';
+
+// Tuned against the original 6-letter layout (spacing 0.36 @ fontSize 0.85):
+// spacing/fontSize is held at ~0.42 so letter density stays identical, and
+// SPLIT_RATIO is set so the outermost letter travels about as far as it used to.
+const LETTER_SPACING = 0.32;
+const LETTER_FONT_SIZE = 0.75;
+const SPLIT_RATIO = 1.4;
+
 /**
- * HeroText Component - Custom styled for Younus
+ * HeroText Component - Custom styled for Sree Bhargava
  */
 const HeroText = ({ position = [0, 0.3, 0] }) => {
     const groupRef = useRef();
@@ -43,21 +54,24 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
     const floatY = useRef(0);
     const worldPosVec = useRef(new THREE.Vector3());
 
-    // Letter positions for YOUNUS split effect (6 letters)
-    const letters = useMemo(() => [
-        { char: 'Y', baseX: -0.9, splitDir: -1.8 },
-        { char: 'O', baseX: -0.54, splitDir: -1.08 },
-        { char: 'U', baseX: -0.18, splitDir: -0.36 },
-        { char: 'N', baseX: 0.18, splitDir: 0.36 },
-        { char: 'U', baseX: 0.54, splitDir: 1.08 },
-        { char: 'S', baseX: 0.9, splitDir: 1.8 },
-    ], []);
+    // Letter positions for the wordmark split effect, centered on x = 0
+    const letters = useMemo(() => {
+        const chars = [...WORDMARK];
+        const span = (chars.length - 1) * LETTER_SPACING;
+        return chars.map((char, i) => {
+            const baseX = i * LETTER_SPACING - span / 2;
+            return { char, baseX, splitDir: baseX * SPLIT_RATIO };
+        });
+    }, []);
+
+    // Half-width of the wordmark, used to keep the doodles clear of the letters
+    const wordmarkHalfWidth = ([...WORDMARK].length - 1) * LETTER_SPACING / 2;
 
     // Tagline words for split effect
     const taglineWords = useMemo(() => [
         { text: 'Creative', baseX: -1.3, splitDir: -1.8 },
-        { text: 'Web', baseX: 0, splitDir: 0 },
-        { text: 'Developer', baseX: 1.3, splitDir: 1.8 },
+        { text: 'AI', baseX: 0, splitDir: 0 },
+        { text: 'Engineer', baseX: 1.3, splitDir: 1.8 },
     ], []);
 
     // Animation loop
@@ -87,7 +101,7 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
 
         splitAmount.current = THREE.MathUtils.lerp(splitAmount.current, targetSplit.current, 0.08);
 
-        // Apply split to each letter of YOUNUS
+        // Apply split to each letter of the wordmark
         letterRefs.current.forEach((ref, i) => {
             if (ref) {
                 if (ref.material) ref.material.opacity = 1;
@@ -118,13 +132,13 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
 
     return (
         <group ref={groupRef} position={position} scale={[scale, scale, 1]}>
-            {/* YOUNUS Letters */}
+            {/* Wordmark Letters */}
             {letters.map((letter, i) => (
                 <Text
                     key={`${letter.char}-${i}`}
                     ref={(el) => (letterRefs.current[i] = el)}
                     position={[letter.baseX, 0.35, 0]}
-                    fontSize={0.85}
+                    fontSize={LETTER_FONT_SIZE}
                     font={RUBIK_SCRIBBLE_URL}
                     color="#1a1a1a"
                     outlineWidth={0.014}
@@ -155,8 +169,8 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
             ))}
 
             {/* Decorative doodles */}
-            <SmallStar position={[-1.6, 0.7, 0]} scale={0.07} />
-            <SmallStar position={[1.65, 0.6, 0]} scale={0.05} />
+            <SmallStar position={[-(wordmarkHalfWidth + 0.7), 0.7, 0]} scale={0.07} />
+            <SmallStar position={[wordmarkHalfWidth + 0.75, 0.6, 0]} scale={0.05} />
             <SmallStar position={[-1.3, -1.5, 0]} scale={0.04} />
             <SmallStar position={[1.3, -1.45, 0]} scale={0.035} />
         </group>

@@ -152,9 +152,19 @@ const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || '';
 
 // Only these domains are allowed to submit the form.
 // Anyone cloning the repo and running on localhost will be silently blocked.
+// Only these hosts are allowed to submit the form, so a cloned repo running
+// somewhere else can't spend the Web3Forms quota. Set VITE_ALLOWED_ORIGINS to a
+// comma-separated host list (e.g. "sreebhargava.dev,my-site.vercel.app") —
+// subdomains of each entry are allowed too. Local development always works.
+//
+// Note this check silently reports success rather than failing, which is
+// deliberate against abuse but confusing when it's your own deploy that is
+// missing from the list. Hence the dev warning where it's enforced.
 const ALLOWED_ORIGINS = [
-    'developer.younus',
-    'www.developer.younus',
+    ...(import.meta.env.VITE_ALLOWED_ORIGINS || '')
+        .split(',')
+        .map(d => d.trim())
+        .filter(Boolean),
     'localhost',
     '127.0.0.1',
 ];
@@ -376,6 +386,16 @@ const MessagePaper = ({ position = [0, 0.05, 2], onSend }) => {
             return;
         }
 
+        // Without an access key the Web3Forms call can never succeed, and the
+        // generic failure below gives no hint why. Say so plainly instead.
+        if (!WEB3FORMS_KEY) {
+            setErrors({ message: 'Contact form is not configured yet — set VITE_WEB3FORMS_KEY.' });
+            if (import.meta.env.DEV) {
+                console.warn('[contact] VITE_WEB3FORMS_KEY is empty; no email will be sent. Add it to .env');
+            }
+            return;
+        }
+
         setIsSubmitting(true);
         setErrors({});
 
@@ -403,6 +423,13 @@ const MessagePaper = ({ position = [0, 0.05, 2], onSend }) => {
             const isAllowedOrigin = ALLOWED_ORIGINS.some(d => currentHost === d || currentHost.endsWith('.' + d));
             if (!isAllowedOrigin) {
                 // Silently fake success so attacker thinks it worked
+                if (import.meta.env.DEV) {
+                    console.warn(
+                        `[contact] "${currentHost}" is not in the allowed origins ` +
+                        `(${ALLOWED_ORIGINS.join(', ')}). The form reported success ` +
+                        `but sent nothing. Add the host to VITE_ALLOWED_ORIGINS.`
+                    );
+                }
                 setSubmitStatus('success');
                 setIsSubmitting(false);
                 return;
@@ -548,6 +575,17 @@ const MessagePaper = ({ position = [0, 0.05, 2], onSend }) => {
     }, [message]);
 
     // Store original vertex positions for fold animation
+    // The inputs are off-screen and there is no <form> wrapping them, so
+    // pressing Enter did nothing at all — the only way to send was clicking the
+    // 3D SEND button. Enter now submits from the single-line fields; in the
+    // message textarea it still inserts a newline, where Ctrl/Cmd+Enter sends.
+    const handleKeyDown = useCallback((e, multiline = false) => {
+        if (e.key !== 'Enter') return;
+        if (multiline && !(e.ctrlKey || e.metaKey)) return;
+        e.preventDefault();
+        if (!isSubmitting) handleButtonClick();
+    }, [handleButtonClick, isSubmitting]);
+
     // Paper animation (flutter)
     useFrame((state, delta) => {
         if (!paperRef.current) return;
@@ -562,9 +600,9 @@ const MessagePaper = ({ position = [0, 0.05, 2], onSend }) => {
         <group ref={groupRef} position={position}>
             {/* Hidden HTML inputs */}
             <Html position={[0, 0, 0]} style={{ position: 'fixed', left: '-9999px', top: '-9999px', opacity: 0, pointerEvents: 'none' }}>
-                <textarea ref={hiddenInputRef} value={message} onChange={handleMessageInput} onBlur={handleBlur} aria-label="Message" style={{ pointerEvents: 'auto' }} />
-                <input ref={emailInputRef} type="email" value={email} onChange={handleEmailInput} onBlur={handleBlur} aria-label="Email" style={{ pointerEvents: 'auto' }} />
-                <input ref={subjectInputRef} type="text" value={subject} onChange={handleSubjectInput} onBlur={handleBlur} aria-label="Subject" style={{ pointerEvents: 'auto' }} />
+                <textarea ref={hiddenInputRef} value={message} onChange={handleMessageInput} onBlur={handleBlur} onKeyDown={(e) => handleKeyDown(e, true)} aria-label="Message" style={{ pointerEvents: 'auto' }} />
+                <input ref={emailInputRef} type="email" value={email} onChange={handleEmailInput} onBlur={handleBlur} onKeyDown={handleKeyDown} aria-label="Email" style={{ pointerEvents: 'auto' }} />
+                <input ref={subjectInputRef} type="text" value={subject} onChange={handleSubjectInput} onBlur={handleBlur} onKeyDown={handleKeyDown} aria-label="Subject" style={{ pointerEvents: 'auto' }} />
                 <input type="checkbox" name="botcheck" checked={botcheck} onChange={handleBotcheckInput} style={{ pointerEvents: 'auto' }} />
             </Html>
 

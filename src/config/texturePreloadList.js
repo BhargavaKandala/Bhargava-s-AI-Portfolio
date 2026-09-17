@@ -108,15 +108,10 @@ export const IMAGE_ASSETS = [
 
 // Additional textures from App.jsx and avatar animations
 export const UI_TEXTURES = [
+    // Frames 2-9 are byte-identical copies of 1.webp and Avatar.jsx only ever
+    // loads frame 1 (it's a static sketch, not an animation). Preloading the
+    // rest cost ~352 KB on the blocking loader screen for nothing.
     '/textures/corridor/avatar_anim/1.webp',
-    '/textures/corridor/avatar_anim/2.webp',
-    '/textures/corridor/avatar_anim/3.webp',
-    '/textures/corridor/avatar_anim/4.webp',
-    '/textures/corridor/avatar_anim/5.webp',
-    '/textures/corridor/avatar_anim/6.webp',
-    '/textures/corridor/avatar_anim/7.webp',
-    '/textures/corridor/avatar_anim/8.webp',
-    '/textures/corridor/avatar_anim/9.webp',
 ];
 
 // ============================================
@@ -155,6 +150,12 @@ export const GALLERY_TEXTURES_VERSIONED = [
     'reactlogo',
     'tailwindlogo',
     'wordpresslogo',
+    'pythonlogo',
+    'pytorchlogo',
+    'ollamalogo',
+    'langchainlogo',
+    'geminilogo',
+    'opencvlogo',
 ];
 
 export const GALLERY_TEXTURES = [
@@ -199,6 +200,21 @@ export const ABOUT_TEXTURES = [
     '/textures/about/uowyspa.webp',
     '/textures/about/freelancewyspa.webp',
     // Skill balloons - large
+    // AI/ML skill balloons
+    '/textures/about/pythonbalon.webp',
+    '/textures/about/pythonbalon_painted.webp',
+    '/textures/about/pytorchbalon.webp',
+    '/textures/about/pytorchbalon_painted.webp',
+    '/textures/about/langchainbalon.webp',
+    '/textures/about/langchainbalon_painted.webp',
+    '/textures/about/tensorflowbalon.webp',
+    '/textures/about/tensorflowbalon_painted.webp',
+    '/textures/about/ollamabalon.webp',
+    '/textures/about/ollamabalon_painted.webp',
+    '/textures/about/opencvbalon.webp',
+    '/textures/about/opencvbalon_painted.webp',
+    '/textures/about/cppbalon.webp',
+    '/textures/about/cppbalon_painted.webp',
     '/textures/about/reactduzybalon.webp',
     '/textures/about/reactduzybalon_painted.webp',
     '/textures/about/threejsduzybalon.webp',
