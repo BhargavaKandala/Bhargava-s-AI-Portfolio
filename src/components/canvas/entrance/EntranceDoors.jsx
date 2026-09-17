@@ -673,29 +673,12 @@ const EntranceDoors = ({
 
             {/* LEFT DOOR */}
             <group ref={leftDoorRef} position={[-doorWidth, doorCenterY, 0]}>
-                {/* Custom Stickers to cover old tech stack stickers - LEFT DOOR */}
-                <group position={[doorWidth / 2, 0.45, 0.099]}>
-                    <mesh position={[0.01, -0.01, -0.002]}>
-                        <planeGeometry args={[0.73, 0.38]} />
-                        <meshBasicMaterial color="#311059" transparent opacity={0.7} />
-                    </mesh>
-                    <mesh position={[0, 0, -0.001]}>
-                        <planeGeometry args={[0.7, 0.35]} />
-                        <meshBasicMaterial color="#fcf3c6" />
-                    </mesh>
-                    <Text
-                        position={[0, 0.02, 0.001]}
-                        fontSize={0.075}
-                        color="#311059"
-                        anchorX="center"
-                        anchorY="middle"
-                        font="/fonts/CabinSketch-Bold.ttf"
-                    >
-                        Agentic AI 🚀
-                    </Text>
-                </group>
-
-                <group position={[doorWidth / 2, -0.45, 0.099]}>
+                {/* The door texture now carries the stack as stickers, so the
+                    label cards that used to cover the old web-stack art are
+                    gone -- they duplicated the stickers and cut across them.
+                    Only the handle remains, on the clear rail below the lowest
+                    sticker (which bottoms out at door y -0.787). */}
+                <group position={[doorWidth / 2, -1.0, 0.099]}>
                     <mesh position={[0.01, -0.01, -0.002]}>
                         <planeGeometry args={[0.73, 0.38]} />
                         <meshBasicMaterial color="#311059" transparent opacity={0.7} />
@@ -797,48 +780,9 @@ const EntranceDoors = ({
 
             {/* RIGHT DOOR */}
             <group ref={rightDoorRef} position={[doorWidth, doorCenterY, 0]}>
-                {/* Custom Stickers to cover old tech stack stickers - RIGHT DOOR */}
-                <group position={[-doorWidth / 2, 0.45, 0.099]}>
-                    <mesh position={[0.01, -0.01, -0.002]}>
-                        <planeGeometry args={[0.73, 0.38]} />
-                        <meshBasicMaterial color="#311059" transparent opacity={0.7} />
-                    </mesh>
-                    <mesh position={[0, 0, -0.001]}>
-                        <planeGeometry args={[0.7, 0.35]} />
-                        <meshBasicMaterial color="#fcf3c6" />
-                    </mesh>
-                    <Text
-                        position={[0, 0.02, 0.001]}
-                        fontSize={0.075}
-                        color="#311059"
-                        anchorX="center"
-                        anchorY="middle"
-                        font="/fonts/CabinSketch-Bold.ttf"
-                    >
-                        Case Studies ✍️
-                    </Text>
-                </group>
-
-                <group position={[-doorWidth / 2, -0.45, 0.099]}>
-                    <mesh position={[0.01, -0.01, -0.002]}>
-                        <planeGeometry args={[0.73, 0.38]} />
-                        <meshBasicMaterial color="#311059" transparent opacity={0.7} />
-                    </mesh>
-                    <mesh position={[0, 0, -0.001]}>
-                        <planeGeometry args={[0.7, 0.35]} />
-                        <meshBasicMaterial color="#fcf3c6" />
-                    </mesh>
-                    <Text
-                        position={[0, 0.02, 0.001]}
-                        fontSize={0.07}
-                        color="#311059"
-                        anchorX="center"
-                        anchorY="middle"
-                        font="/fonts/CabinSketch-Bold.ttf"
-                    >
-                        Python 💻
-                    </Text>
-                </group>
+                {/* Right door carries its stack in the texture now; the two
+                    label cards that used to sit here duplicated those stickers
+                    and cut across them. */}
 
                 {/* Solid 3D Door Body with edge texture */}
                 <mesh
